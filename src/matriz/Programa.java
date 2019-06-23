@@ -9,16 +9,16 @@ public class Programa {
 		Scanner teclado = new Scanner(System.in);
 		int i, j, N;
 		int negativo = 0;
-		int N1 = 1;
-		int cc = 1;
 
-		System.out.println("Digite um numero inteiro: ");
+		
+		System.out.print("Digite o numero de linhas e colunas da matriz: ");
 		N = teclado.nextInt();
 		int matriz[][] = new int[N][N];
 		// ==============================================================================
-		for (i = 0; i < matriz.length; i++) {//matriz.length == quantidade de linhas
+		for (i = 0; i < matriz.length; i++) {
+			System.out.print("Digite os valores da " + (1+i) + "o linha: ");
 			for (j = 0; j < matriz[i].length; j++) {//matriz[i].length == quantidade de colunas na posicao [i]
-				System.out.println("Numero: ");
+				
 				matriz[i][j] = teclado.nextInt();
 			}
 		}//Atribuir valores
@@ -39,19 +39,30 @@ public class Programa {
 				System.out.print(matriz[i][j] + " ");
 
 			}
-			System.out.println("\n");
+			System.out.print("\n");
 		}//Impressao
 		// ====================================================================================
+		System.out.println("Triangulo inferior ");
 		for (i = 0; i < matriz.length; i++) {
 			for (j = 0; j < matriz[i].length; j++) {
-				if (i > j) {
+				if (i < j ) {
 					System.out.print(matriz[i][j]+" ");
 				}
 			}//Triangulo imferior
 			System.out.println(" ");
 		}
 		
-		System.out.println("\n");
+		System.out.println("Diagonal principal ");
+		for (i = 0; i < matriz.length; i++) {
+			for (j = 0; j < matriz[i].length; j++) {
+				if(i == j) {
+					System.out.print(matriz[i][j]+" ");
+				}
+			}
+			System.out.print("\n");
+		}//Impressao
+		
+	
 		System.out.println("Negativos: "+negativo);
 		teclado.close();
 
